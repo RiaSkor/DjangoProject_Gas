@@ -1,4 +1,4 @@
-1) установливается python 3.14.3
+1) устанавливается python 3.14.3
 2) по пути C:\ProgrammDjango4 создано виртуальное окружение: py -m venv my_env
 3) виртуальное окружение активировано: .\my_env\Scripts\activate
 4) установлен Django в виртуальном окружении: pip install Django~=4.1.0
