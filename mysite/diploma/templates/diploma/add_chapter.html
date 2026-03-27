@@ -1,0 +1,274 @@
+{% extends "diploma/base.html" %}
+
+{% block extra_css %}
+<style>
+    .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        background-size: cover;
+        background-position: center;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+        max-width: 800px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .features {
+        padding: 80px 0;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .features h2 {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        color: #2c3e50;
+    }
+
+    .features-grid {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .feature-card {
+        flex: 1;
+        min-width: 300px;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .feature-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .feature-card-content {
+        padding: 20px;
+    }
+
+    .feature-card h3 {
+        margin-bottom: 10px;
+        color: #2c3e50;
+    }
+
+    .feature-card p {
+        color: #7f8c8d;
+        line-height: 1.6;
+    }
+
+    .image-text-section {
+        margin: 30px 0;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+    }
+
+    .image-text-container {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .text-content {
+        flex: 1;
+        padding-right: 20px;
+    }
+
+    .text-content h3 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+    }
+
+    .text-content p {
+        color: #7f8c8d;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .text-content ul {
+        color: #7f8c8d;
+        padding-left: 20px;
+    }
+
+    .text-content li {
+        margin-bottom: 8px;
+    }
+
+    .image-content {
+        flex: 1;
+    }
+
+    .chapter-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+        .image-text-container {
+            flex-direction: column;
+        }
+
+        .text-content {
+            padding-right: 0;
+            margin-bottom: 20px;
+        }
+    }
+
+    .form-section {
+        padding: 80px 0;
+        background-color: #ecf0f1;
+    }
+
+    .form-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(79, 195, 247, 0.3);
+    }
+
+    .form-container h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #2c3e50;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #2c3e50;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 20px;
+        border: 2px solid #bdc3c7;
+        border-radius: 25px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-color: #4fc3f7;
+        box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.2);
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    <section class="hero fade-in">
+        <div>
+            <h1>Структура дипломного проекта на тему:</h1>
+            <p>ИС поддержки предпроектного планирования систем газоснабжения</p>
+        </div>
+    </section>
+
+    <section class="features fade-in">
+        <h2>Используемые инстурменты</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="https://avatars.mds.yandex.net/get-vthumb/1692149/8e0a741958340dd117375d33718b9779/564x318_1" alt="Газовые трубы">
+                <div class="feature-card-content">
+                    <h3>Visual Studio</h3>
+                    <p>Интегрированная среда разработки (IDE) от Microsoft, стандартный инструмент для создания .NET-приложений</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img src="https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/product-categories/databases/relational/approved/images/45329abe-a8cf-4c45-8536-095f89bb38f1.a1191524726169134e964a04cf2105e7f1c3df22.png" alt="Газовый кран">
+                <div class="feature-card-content">
+                    <h3>MySQL</h3>
+                    <p>Реляционная СУБД с открытым исходным кодом</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img src="https://forums.autodesk.com/t5/image/serverpage/image-id/1344861i559E4F2A542DD43F/image-size/large?v=v2&px=999" alt="Газовая станция">
+                <div class="feature-card-content">
+                    <h3>Autodesk Revit</h3>
+                    <p>Программный комплекс для информационного моделирования зданий (BIM)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="image-text-section">
+        <div class="image-text-container">
+            <div class="text-content">
+                <h3>Содержание дипломного проекта</h3>
+                <p>В процессе создания ВКР планируется разработать плагин для Revit, связанный с системами газоснабжения многоквартирных зданий.</p>
+                <p>Актуальность такого плагина:</p>
+                <ul>
+                    <li>нет альтернатив на отечественном рынке (конкретно под Revit);</li>
+                    <li>зарубежные аналоги не учитвают российские нормы;</li>
+                    <li>на предприятии, к которому я привязываюсь в рамках ВКР, используется Autodesk Revit, что делает разработку необходимой для упрощения расчётов инженерам;</li>
+                    <li>сокращение времени проектирования систем газоснабжения многоквартирных зданий.</li>
+                </ul>
+            </div>
+            <div class="image-content">
+                <img src="https://cdn-edge.kwork.ru/pics/t3/41/34136066-667fcc2d9f9ba.jpg"
+                     alt="Иллюстрация процесса написания диплома"
+                     class="chapter-image">
+            </div>
+        </div>
+    </div>
+
+    <section class="form-section" id="add-form">
+        <div class="form-container fade-in">
+            <h2>Добавление новой главы</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="{{ form.title.id_for_label }}">Название главы</label>
+                    {{ form.title }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.content.id_for_label }}">Содержание главы</label>
+                    {{ form.content }}
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn">Сохранить главу</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

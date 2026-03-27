@@ -1,0 +1,86 @@
+{% extends "diploma/base.html" %}
+
+{% block extra_css %}
+<style>
+    .confirm-section {
+        padding: 80px 0;
+        background-color: #f8f9fa;
+    }
+
+    .confirm-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .warning-icon {
+        font-size: 4rem;
+        color: #e74c3c;
+        margin-bottom: 20px;
+    }
+
+    .confirm-container h2 {
+        margin-bottom: 20px;
+        color: #2c3e50;
+    }
+
+    .confirm-container p {
+        margin-bottom: 30px;
+        color: #7f8c8d;
+        line-height: 1.6;
+    }
+
+    .chapter-preview {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+        text-align: left;
+        border-left: 3px solid #e74c3c;
+    }
+
+    .chapter-preview h3 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+    }
+
+    .chapter-preview p {
+        color: #7f8c8d;
+        margin-bottom: 5px;
+    }
+
+    .confirm-actions {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="confirm-section">
+    <div class="confirm-container fade-in">
+        <div class="warning-icon">⚠️</div>
+        <h2>Подтвердите удаление главы</h2>
+        <p>Вы действительно хотите безвозвратно удалить эту главу?</p>
+
+        <div class="chapter-preview">
+            <h3>{{ chapter.title }}</h3>
+            <p><strong>Создано:</strong> {{ chapter.created_at|date:"d.m.Y H:i" }}</p>
+            <p><strong>Последнее обновление:</strong> {{ chapter.updated_at|date:"d.m.Y H:i" }}</p>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="confirm-actions">
+                <a href="{% url 'chapter_list' %}" class="btn">Отмена</a>
+                <button type="submit" class="btn btn-danger">Удалить главу</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

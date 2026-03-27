@@ -1,0 +1,74 @@
+{% extends "diploma/base.html" %}
+
+{% block extra_css %}
+<style>
+    .edit-section {
+        padding: 80px 0;
+        background-color: #ecf0f1;
+    }
+
+    .edit-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(79, 195, 247, 0.3);
+    }
+
+    .edit-container h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #2c3e50;
+    }
+
+    .chapter-info {
+        margin-bottom: 30px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-left: 4px solid #4fc3f7;
+    }
+
+    .chapter-info p {
+        margin: 5px 0;
+        color: #7f8c8d;
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 40px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="edit-section">
+    <div class="edit-container fade-in">
+        <h2>Редактирование главы</h2>
+
+        <div class="chapter-info">
+            <p><strong>Создано:</strong> {{ chapter.created_at|date:"d.m.Y H:i" }}</p>
+            <p><strong>Последнее обновление:</strong> {{ chapter.updated_at|date:"d.m.Y H:i" }}</p>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.title.id_for_label }}">Название главы</label>
+                {{ form.title }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.content.id_for_label }}">Содержание главы</label>
+                {{ form.content }}
+            </div>
+            <div class="form-actions">
+                <a href="{% url 'chapter_list' %}" class="btn btn-danger">Отмена</a>
+                <button type="submit" class="btn">Сохранить изменения</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
